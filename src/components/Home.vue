@@ -1,5 +1,4 @@
 <template>
-  
    <section>
       <!-- Hero head: will stick at the top -->
 
@@ -26,7 +25,7 @@
     <nuxt-link class="navbar-item" to="/About">About</nuxt-link>
             <span class="navbar-item">
               <a class="button is-success is-inverted">
-               
+
                 <span>Contact</span>
               </a>
             </span>
@@ -52,9 +51,9 @@
   <!-- Hero footer: will stick at the bottom -->
 </div>
   <!-- Hero content: will be in the middle -->
- 
 
-    <div class="hero is-medium is-warning is-bold">    
+
+    <div class="hero is-medium is-warning is-bold">
       <div class="hero-body">
         <div class="container">
           <p class="title">
@@ -66,7 +65,7 @@
         </div>
       </div>
     </div>
-    
+
         <div class="block ">
             <div class="columns columns is-desktop is-vcentered">
                 <div class="column ">
@@ -125,9 +124,9 @@
   </div>
 </footer>
 
-    
+
     </section>
- 
+
 </template>
 
 <script>
@@ -143,7 +142,7 @@
 
 <style>
 #intro {
-    
+
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -209,7 +208,7 @@
 a.navbar-item:hover{
 background-color:transparent !important;
 opacity: 0.8;
-  
+
 }
 
 .button.is-success.is-inverted.is-outlined {
