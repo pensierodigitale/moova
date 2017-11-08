@@ -1,6 +1,6 @@
 import ease from '@/transition/ease';
 
-class ShapeOverlays {
+class T5Class {
   constructor(elm) {
     this.elm = elm;
     this.path = elm.querySelectorAll('path');
@@ -78,4 +78,4 @@ class ShapeOverlays {
   }
 };
 
-export default ShapeOverlays;
+export default T5Class;

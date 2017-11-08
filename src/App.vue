@@ -29,14 +29,14 @@
                 </div>
             </div>
         </header>
-        <!-- <img src="./assets/logo.png"> -->
-        <transition @leave="animate" @enter="animate" name="page" mode="out-in">
+        <T3>
             <router-view></router-view>
-        </transition>
+        </T3>
     </div>
 </template>
 
 <script>
+import T3 from '@/transition/T3';
 import T5 from '@/transition/T5';
 export default {
   name: 'app',
@@ -51,17 +51,7 @@ export default {
       checkedNames: []
     }
   },
-  mounted: function () {
-    this.shapeOverlays = new T5(document.querySelector('.shape-overlays'));
-  },
-  beforeDestroy: function () {
-    this.shapeOverlays = null;
-  },
-  methods: {
-    animate(el, done) {
-        this.shapeOverlays.toggle(done);
-    }
-  }
+  components: {'T3': T3, 'T5': T5}
 }
 </script>
 
@@ -74,14 +64,6 @@ export default {
   margin-top: 0px;
   background-color: #000;
 }
-
-.page-enter-active, .page-leave-active {
-  transition: opacity 2s;
-}
-.page-enter, .page-leave-to {
-  opacity: 0;
-}
-
 .navlink{
   font-weight: bold;
   font-size: 22px;
