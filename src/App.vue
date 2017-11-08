@@ -30,7 +30,7 @@
             </div>
         </header>
         <!-- <img src="./assets/logo.png"> -->
-        <transition @leave="leave" @beforeLeave="beforeEnter" @enter="enter" :css="false" name="page" mode="out-in">
+        <transition @leave="animate" @enter="animate" name="page" mode="out-in">
             <router-view></router-view>
         </transition>
     </div>
@@ -51,17 +51,15 @@ export default {
       checkedNames: []
     }
   },
+  mounted: function () {
+    this.shapeOverlays = new T5(document.querySelector('.shape-overlays'));
+  },
+  beforeDestroy: function () {
+    this.shapeOverlays = null;
+  },
   methods: {
-    leave(el, done) {
+    animate(el, done) {
         this.shapeOverlays.toggle(done);
-    },
-    enter(el, done) {
-        this.shapeOverlays.toggle(done);
-    },
-    beforeEnter(el) {
-        const elmOverlay = document.querySelector('.shape-overlays');
-        // TODO:: add the path in relation to the desired transition
-        this.shapeOverlays = new T5(elmOverlay);
     }
   }
 }
@@ -78,14 +76,10 @@ export default {
 }
 
 .page-enter-active, .page-leave-active {
-  transition: opacity 1.5s, transform 1.5s;
+  transition: opacity 2s;
 }
 .page-enter, .page-leave-to {
   opacity: 0;
-  transform: translateY(20px);
-  /*transform: translate(100px);*/
-
-
 }
 
 .navlink{
