@@ -1,47 +1,43 @@
 <template>
-  <div id="app">
-
-     <transition name="slide-fade">
-       <div v-if="showpanelmenu" class="slidepanel-menu">
-<a class="navbar-item freccia" @click="showpanelmenu = !showpanelmenu"><span class="ion-android-arrow-forward"></span></a>
-      <router-link to="/"><a class="navbar-item navlink-side" @click="showpanelmenu = !showpanelmenu">Home</a></router-link>
-    <router-link to="/about"><a class="navbar-item navlink-side" @click="showpanelmenu = !showpanelmenu">About</a></router-link>
-    <router-link to="/slide"><a class="navbar-item navlink-side" @click="showpanelmenu = !showpanelmenu">Slide</a></router-link>
-
-        </div>
-
-  </transition>
-    <header class="navbar is-black">
-        <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item">
-            <img src="http://res.cloudinary.com/thinkdigital/image/upload/v1508245585/logo-header_yqpxw0.png" alt="Logo">
-          </a>
-
-          <span class="navbar-burger burger" @click="showpanelmenu = !showpanelmenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <div id="navbarMenuHeroC" class="navbar-menu">
-          <div class="navbar-end">
-        <router-link to="/"><a class="navbar-item navlink">Home</a></router-link>
-    <router-link to="/about"><a class="navbar-item navlink">About</a></router-link>
-    <router-link to="/slide"><a class="navbar-item navlink">Slide</a></router-link>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- <img src="./assets/logo.png"> -->
-   <transition name="page" mode="out-in">
-    <router-view></router-view>
-    </transition>
-  </div>
+    <div id="app">
+        <transition name="slide-fade">
+            <div v-if="showpanelmenu" class="slidepanel-menu">
+                <a class="navbar-item freccia" @click="showpanelmenu = !showpanelmenu"><span class="ion-android-arrow-forward"></span></a>
+                <router-link to="/"><a class="navbar-item navlink-side" @click="showpanelmenu = !showpanelmenu">Home</a></router-link>
+                <router-link to="/about"><a class="navbar-item navlink-side" @click="showpanelmenu = !showpanelmenu">About</a></router-link>
+                <router-link to="/slide"><a class="navbar-item navlink-side" @click="showpanelmenu = !showpanelmenu">Slide</a></router-link>
+            </div>
+      </transition>
+        <header class="navbar is-black">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <img src="http://res.cloudinary.com/thinkdigital/image/upload/v1508245585/logo-header_yqpxw0.png" alt="Logo">
+                    </a>
+                    <span class="navbar-burger burger" @click="showpanelmenu = !showpanelmenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenuHeroC" class="navbar-menu">
+                    <div class="navbar-end">
+                        <router-link to="/"><a class="navbar-item navlink">Home</a></router-link>
+                        <router-link to="/about"><a class="navbar-item navlink">About</a></router-link>
+                        <router-link to="/slide"><a class="navbar-item navlink">Slide</a></router-link>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- <img src="./assets/logo.png"> -->
+        <transition @leave="leave" @beforeLeave="beforeEnter" @enter="enter" :css="false" name="page" mode="out-in">
+            <router-view></router-view>
+        </transition>
+    </div>
 </template>
 
 <script>
-
+import T5 from '@/transition/T5';
 export default {
   name: 'app',
   data () {
@@ -53,6 +49,19 @@ export default {
       show: false,
       showpanelmenu: false,
       checkedNames: []
+    }
+  },
+  methods: {
+    leave(el, done) {
+        this.shapeOverlays.toggle(done);
+    },
+    enter(el, done) {
+        this.shapeOverlays.toggle(done);
+    },
+    beforeEnter(el) {
+        const elmOverlay = document.querySelector('.shape-overlays');
+        // TODO:: add the path in relation to the desired transition
+        this.shapeOverlays = new T5(elmOverlay);
     }
   }
 }
@@ -75,7 +84,7 @@ export default {
   opacity: 0;
   transform: translateY(20px);
   /*transform: translate(100px);*/
- 
+
 
 }
 

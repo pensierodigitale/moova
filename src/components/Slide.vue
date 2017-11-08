@@ -1,7 +1,6 @@
 <template>
- <section>
-  
-<agile>
+    <section>
+        <agile>
             <div class="slide">
                 <h3>slide 1</h3>
             </div>
@@ -9,30 +8,27 @@
                 <h3>slide 2</h3>
             </div>
         </agile>
-
-    <div class="hero-foot">
-      <div class="container">
-        <div class="tabs is-centered">
-          <ul>
-            <li><a>And this at the bottom</a></li>
-          </ul>
+        <div class="hero-foot">
+            <div class="container">
+                <div class="tabs is-centered">
+                    <ul>
+                        <li><a>And this at the bottom</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-</div>
-
-<footer class="footer is-primary is-bold">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-      </p>
-    </div>
-  </div>
-</footer>
-
-
+        <footer class="footer is-primary is-bold">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <p>
+                        <strong>Bulma</strong> by
+                        <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+                        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is licensed
+                        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+                    </p>
+                </div>
+            </div>
+        </footer>
     </section>
 </template>
 
@@ -74,7 +70,7 @@ export default {
 }
 
 .agile__arrow svg{
-   
+
     fill:  transparent !important;
 }
 .intro-title{
@@ -107,7 +103,7 @@ export default {
     margin: 10px;
 }
 #intro {
-    
+
     background-size: cover;
     background-position: center center;
     position: relative;
@@ -182,7 +178,7 @@ export default {
 
     }
 
-   
+
 
     h3 {
         font-size: 32px;
@@ -208,7 +204,7 @@ export default {
 }
 
 .agile__dot__current {
-    
+
     width: 2px;
     height: 2px;
     color:#60439a;
@@ -272,4 +268,4 @@ export default {
   opacity:
 }
 
-</style>	
+</style>
